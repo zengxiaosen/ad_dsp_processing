@@ -151,7 +151,7 @@ public class MongoDBInputFormat<V extends MongoDBWritable> extends InputFormat<L
             }
             boolean hasNext = this.dbCursor.hasNext();
             if(hasNext) {
-                DBObject dbObject = this.dbCursor.curr();
+                DBObject dbObject = this.dbCursor.next();
                 this.key.set(this.split.start + index);
                 this.index ++ ;
                 this.value.readFields(dbObject);

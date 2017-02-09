@@ -28,15 +28,6 @@ public class MongoDBRunner {
         private int count = 1;
 
 
-
-        public void readFields(DBObject dbObject) {
-            //从mongodb中拿数据
-            this.name = dbObject.get("name").toString();
-            this.sex = dbObject.get("sex").toString();
-            this.age = Integer.valueOf(dbObject.get("age").toString());
-
-        }
-
         public void write(DBCollection dbCollection) {
             DBObject dbObject = BasicDBObjectBuilder.start().add("age", this.age).add("count", this.count).get();
             dbCollection.insert(dbObject);
@@ -52,6 +43,16 @@ public class MongoDBRunner {
                 out.writeInt(this.age);
             }
             out.writeInt(this.count);
+        }
+
+        public void readFields(DBObject dbObject) {
+            //从mongodb中拿数据
+            this.name = dbObject.get("name").toString();
+            //this.sex = dbObject.get("sex").toString();
+            if(dbObject.get("age") != null){
+                this.age = Double.valueOf(dbObject.get("age").toString()).intValue();
+            }
+
         }
 
         public void readFields(DataInput in) throws IOException {
@@ -74,6 +75,7 @@ public class MongoDBRunner {
         protected void map(LongWritable key, PersonMongoDBWritable value,
                            Mapper<LongWritable, PersonMongoDBWritable, IntWritable, PersonMongoDBWritable>.Context context) throws IOException, InterruptedException{
             if(value.age == null){
+                System.out.println("过滤数据" + value.name);
                 return;
             }
             context.write(new IntWritable(value.age), value);
@@ -95,8 +97,10 @@ public class MongoDBRunner {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
+        //设置inputformat的value类
+        conf.setClass("mapreduce.mongo.split.value.class", PersonMongoDBWritable.class, MongoDBWritable.class);
         Job job = Job.getInstance(conf, "自定义input/outputformat");
         job.setJarByClass(MongoDBRunner.class);
         job.setMapperClass(MongoDBMapper.class);
@@ -108,7 +112,7 @@ public class MongoDBRunner {
         job.setInputFormatClass(MongoDBInputFormat.class); //计算inputformat
         job.setOutputFormatClass(MongoDBOutputFormat.class); // 计算outputformat
 
-
+        job.waitForCompletion(true);
 
     }
 

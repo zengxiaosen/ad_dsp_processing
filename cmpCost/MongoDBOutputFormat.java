@@ -12,11 +12,16 @@ import java.net.UnknownHostException;
 /**
  * Created by Administrator on 2017/1/31.
  */
-//自定义outputformat
+
+/**
+ * 自定义outputformat
+ * @param <V>
+ */
 public class MongoDBOutputFormat<V extends MongoDBWritable> extends OutputFormat<NullWritable, V> {
 
-    /*
-    自定义mongodb outputformat
+    /**
+     * 自定义mongodb outputformat
+     * @param <V>
      */
     static class MongoDBRecordWriter<V extends MongoDBWritable> extends RecordWriter<NullWritable, V>{
         private DBCollection dbCollection = null;
@@ -34,14 +39,14 @@ public class MongoDBOutputFormat<V extends MongoDBWritable> extends OutputFormat
             value.write(this.dbCollection);
         }
 
-        public void close(TaskAttemptContext taskAttemptContext) throws IOException, InterruptedException {
+        public void close(TaskAttemptContext context) throws IOException, InterruptedException {
 
         }
     }
 
 
-    public RecordWriter<NullWritable, V> getRecordWriter(TaskAttemptContext taskAttemptContext) throws IOException, InterruptedException {
-        return new MongoDBRecordWriter<V>(taskAttemptContext);
+    public RecordWriter<NullWritable, V> getRecordWriter(TaskAttemptContext context) throws IOException, InterruptedException {
+        return new MongoDBRecordWriter<V>(context);
     }
 
     public void checkOutputSpecs(JobContext jobContext) throws IOException, InterruptedException {
