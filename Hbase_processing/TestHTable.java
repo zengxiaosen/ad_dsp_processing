@@ -1,34 +1,57 @@
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.client.HTable;
-import org.apache.hadoop.hbase.client.Put;
-import org.apache.hadoop.hbase.client.RetriesExhaustedWithDetailsException;
+import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.filter.FilterList;
+import org.apache.hadoop.hbase.filter.MultipleColumnPrefixFilter;
 import org.apache.hadoop.hbase.util.Bytes;
+import scala.util.control.Exception;
 import util.HBaseUtil;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Administrator on 2017/2/9.
  */
 public class TestHTable {
+    static byte[] family = Bytes.toBytes("f");
     public static void main(String[] args) throws IOException {
         Configuration conf = HBaseUtil.getHBaseConfiguration();
-        HTable hTable = new HTable(conf, "users");
+        testUseHbaseConnectionPool(conf);
+        /*HTable hTable = new HTable(conf, "users");
         try{
             testPut(hTable);
+            testGet(hTable);
+            testDelete(hTable);
         }finally {
             hTable.close();
+        }*/
+    }
+
+    static void testUseHbaseConnectionPool(Configuration conf) throws IOException {
+        //创建两个线程进行操作
+        ExecutorService threads = Executors.newFixedThreadPool(2);
+        HConnection pool = HConnectionManager.createConnection(conf, threads);
+        HTableInterface hTable = pool.getTable("users");
+        try{
+            testPut(hTable);
+            testGet(hTable);
+            testDelete(hTable);
+            testScan(hTable);
+        }finally {
+            hTable.close(); // 每次htable操作完关闭，其实是放到pool中
+            pool.close(); // 最终时候的关闭
         }
+
     }
 
     /**
      * 测试put操作
      * @param hTable
      */
-    static void testPut(HTable hTable) throws IOException {
+    static void testPut(HTableInterface hTable) throws IOException {
         Put put = new Put(Bytes.toBytes("row1"));
         put.add(Bytes.toBytes("f"),Bytes.toBytes("id"),Bytes.toBytes("1"));
         put.add(Bytes.toBytes("f"),Bytes.toBytes("name"),Bytes.toBytes("zhangsan"));
@@ -60,4 +83,52 @@ public class TestHTable {
         put4.add(Bytes.toBytes("f"), Bytes.toBytes("id"), Bytes.toBytes("5"));
         hTable.checkAndPut(Bytes.toBytes("row5"), Bytes.toBytes("f"), Bytes.toBytes("id"), Bytes.toBytes("4"), put4);
     }
+
+    /**
+     * 测试get命令
+     */
+    static void testGet(HTableInterface htTable) throws IOException{
+        Get get = new Get(Bytes.toBytes("row1"));
+        Result result = htTable.get(get);
+        byte[] buf = result.getValue(family, Bytes.toBytes("id"));
+        System.out.println("id: " + Bytes.toString(buf));
+        buf = result.getValue(family, Bytes.toBytes("age"));
+        System.out.println("age: " +  Bytes.toInt(buf));
+        buf = result.getValue(family, Bytes.toBytes("name"));
+        System.out.println("name: " + Bytes.toString(buf));
+        buf = result.getRow();
+        System.out.println("row: " +  Bytes.toString(buf));
+    }
+
+    static void testDelete(HTableInterface hTable) throws IOException{
+        Delete delete = new Delete(Bytes.toBytes("row3"));
+        //删除列
+        delete = delete.deleteColumn(family, Bytes.toBytes("id"));
+        //delete.deleteColumn(family, Bytes.toBytes("name"));
+        //delete.deleteFamily(family);
+        hTable.delete(delete);
+        System.out.println("删除成功");
+    }
+
+    static void testScan(HTableInterface hTable) throws IOException{
+        Scan scan = new Scan();
+        // 增加起始row key
+        scan.setStartRow(Bytes.toBytes("row1"));
+        scan.setStopRow(Bytes.toBytes("row5"));
+        // 增加过滤filter
+        FilterList list = new FilterList(FilterList.Operator.MUST_PASS_ALL);
+        byte[][] prefixes = new byte[2][];
+        prefixes[0] = Bytes.toBytes("id");
+        prefixes[1] = Bytes.toBytes("name");
+        MultipleColumnPrefixFilter mcpf = new MultipleColumnPrefixFilter(prefixes);
+        list.addFilter(mcpf);
+
+        ResultScanner rs = hTable.getScanner(scan);
+        Iterator<Result> iter = rs.iterator();
+        while(iter.hasNext()){
+            Result result = iter.next();
+        }
+    }
+
+
 }
