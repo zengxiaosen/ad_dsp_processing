@@ -19,6 +19,7 @@
       <sourceFolder url="file://$MODULE_DIR$/mongo-spark" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SecondSort" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Hbase_processing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hive_processing" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -36,5 +37,6 @@
     <orderEntry type="library" name="org.apache.hbase:hbase-client:0.98.6-hadoop2" level="project" />
     <orderEntry type="library" name="org.apache.hbase:hbase-server:0.98.6-hadoop2" level="project" />
     <orderEntry type="library" name="hbase-server-1.2.4" level="project" />
+    <orderEntry type="library" name="org.apache.hive:hive-exec:0.13.1" level="project" />
   </component>
 </module>

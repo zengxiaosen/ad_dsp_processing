@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f67e34c1-5e50-4193-ae5a-3c785e313c79" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hbase_server_1_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_apache_hbase_hbase_server_0_98_6_hadoop2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hbase_processing/processing_pcData/HBaseTableDemo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hbase_processing/processing_pcData/ProductModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cmpCost/testDaily.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/MongoDBInputFormat$MongoDBRecordReader.class" afterPath="$PROJECT_DIR$/target/classes/MongoDBInputFormat$MongoDBRecordReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/MongoDBRunner$MongoDBMapper.class" afterPath="$PROJECT_DIR$/target/classes/MongoDBRunner$MongoDBMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/MongoDBRunner$MongoDBReducer.class" afterPath="$PROJECT_DIR$/target/classes/MongoDBRunner$MongoDBReducer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/MongoDBRunner$PersonMongoDBWritable.class" afterPath="$PROJECT_DIR$/target/classes/MongoDBRunner$PersonMongoDBWritable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/MongoDBRunner.class" afterPath="$PROJECT_DIR$/target/classes/MongoDBRunner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/commons/framework/sample/Feature.class" afterPath="$PROJECT_DIR$/target/classes/commons/framework/sample/Feature.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_apache_hive_hive_exec_0_13_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hive_processing/UDAFSumCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hive_processing/UDFLowerOrUpperCase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hbase_processing/TestHTable.java" afterPath="$PROJECT_DIR$/Hbase_processing/TestHTable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gg_ds.iml" afterPath="$PROJECT_DIR$/gg_ds.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
@@ -50,18 +41,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LibSVMWriter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jingjia/FileUtil/LibSVMWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TestHBaseAdmin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hbase_processing/TestHBaseAdmin.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,7 +63,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HBaseTableDemo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HBaseTableDemo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hbase_processing/processing_pcData/HBaseTableDemo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="83">
@@ -100,9 +79,34 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3135">
-              <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+            <state relative-caret-position="114">
+              <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UDFLowerOrUpperCase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hive_processing/UDFLowerOrUpperCase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UDAFSumCase.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hive_processing/UDAFSumCase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,16 +141,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HBaseUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hbase_processing/util/HBaseUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -169,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/AdDemographicPredictor/utils/model/xgboost/Node.java" />
-        <option value="$PROJECT_DIR$/AdDemographicPredictor/utils/model/xgboost/Tree.java" />
         <option value="$PROJECT_DIR$/AdDemographicPredictor/utils/model/xgboost/XgBoostModel.java" />
         <option value="$PROJECT_DIR$/AdDemographicPredictor/age/train/AgeTrainingSampleMaker.java" />
         <option value="$PROJECT_DIR$/jingjia/ods_yes_bid_svm.java" />
@@ -217,9 +209,11 @@
         <option value="$PROJECT_DIR$/cmpCost/test111.java" />
         <option value="$PROJECT_DIR$/cmpCost/testDaily.java" />
         <option value="$PROJECT_DIR$/Hbase_processing/TestHTable.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Hbase_processing/processing_pcData/ProductModel.java" />
         <option value="$PROJECT_DIR$/Hbase_processing/processing_pcData/HBaseTableDemo.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/hive_processing/UDFLowerOrUpperCase.java" />
+        <option value="$PROJECT_DIR$/hive_processing/UDAFSumCase.java" />
       </list>
     </option>
   </component>
@@ -294,25 +288,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Hbase_processing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gg_ds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gg_ds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hbase_processing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="processing_pcData" />
+              <option name="myItemId" value="hive_processing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -755,7 +731,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -804,20 +780,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/lang/StringBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9462">
-          <caret line="555" column="17" selection-start-line="555" selection-start-column="17" selection-end-line="555" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_79/src.zip!/java/lang/AbstractStringBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24814">
-          <caret line="1358" column="33" selection-start-line="1358" selection-start-column="33" selection-end-line="1358" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmpCost/ReverseIndexRunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -1139,14 +1101,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3135">
-          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Hbase_processing/processing_pcData/ProductModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -1164,6 +1118,35 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1062#1078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hive_processing/UDFLowerOrUpperCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hive_processing/UDAFSumCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1246,7 +1229,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>hbase-server-1.2.4</last-edited>
+          <last-edited>org.apache.hive:hive-exec:0.13.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
