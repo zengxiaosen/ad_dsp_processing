@@ -38,5 +38,6 @@
     <orderEntry type="library" name="org.apache.hbase:hbase-server:0.98.6-hadoop2" level="project" />
     <orderEntry type="library" name="hbase-server-1.2.4" level="project" />
     <orderEntry type="library" name="org.apache.hive:hive-exec:0.13.1" level="project" />
+    <orderEntry type="library" name="scopt_2.10-3.2.0" level="project" />
   </component>
 </module>

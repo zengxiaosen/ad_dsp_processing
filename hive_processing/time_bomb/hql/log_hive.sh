@@ -38,3 +38,16 @@ java -jar /home/spark/soledede/spark_recomend/fruitrecomend-1.0.jar --zookeeper_
 end=$(date +%s)
 
 echo $(($end-$start))
+
+#hadoop job -list
+#hadoop job -kill job_id
+
+#切换目录到idea的project目录下，直接打包 mvn clean assembly:assembly
+#cd target/
+#将jar包传到我们的服务器 scp XXX.jar spark1@spark1:/home/spark/hadoop/workcount/
+#运行程序
+#hadoop jar XXX.jar com.soledede.hadoop.wordcount /user/hadoop/wordcount/input /user/hadoop/wordcount/output
+
+
+
+
